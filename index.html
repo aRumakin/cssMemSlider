@@ -1,4 +1,5 @@
 <html lang="en">
+
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1">
@@ -6,30 +7,54 @@
     <link rel="icon" href="./assets/icons/icon-slider.webp" type="image/x-icon">
     <link rel="stylesheet" href="./style.css">
 </head>
+
 <body>
-    <h3>cssMemSlider</h3>
-    <div class="wrapper">
-        <div class="slider-container">
-            <img class="slide1" src="./assets/images/1920.jpeg" alt="Do you think so?">
-            <img class="slide2" src="./assets/images/bin_2.webp" alt="I am an Atlantean">
-            <img class="slide3" src="./assets/images/dont.jpeg" alt="You don't say?">
-            <img class="slide4" src="./assets/images/obama.png" alt="I am an Obama">
-            <img class="slide5" src="./assets/images/watching.jpeg" alt="I am watching you">
-        </div>
-        <div class="description">
-            <span>Do you think so?</span>
-            <span>I am an Atlantean</span>
-            <span>You don't say?</span>
-            <span>I am an Obama</span>
-            <span>I am watching you</span>
-        </div>
-        <div class="controls">
-            <label for="slide1"></label>
-            <label for="slide2"></label>
-            <label for="slide3"></label>
-            <label for="slide4"></label>
-            <label for="slide5"></label>
+    <div class="slider-container">
+        <h3>cssMemSlider</h3>
+        <div class="slider">
+            <input type="radio" name="radio-type" id="slide1" checked>
+            <input type="radio" name="radio-type" id="slide2">
+            <input type="radio" name="radio-type" id="slide3">
+            <input type="radio" name="radio-type" id="slide4">
+            <input type="radio" name="radio-type" id="slide5">
+    
+            <div class="slider-wrapper">
+                <div class="slide">
+                    <img class="slide1" src="./assets/images/bin_1.jpeg" alt="Do you think so?">
+                    <span>Do you think so?</span>
+                </div>
+                <div class="slide">
+                    <img class="slide2" src="./assets/images/bin_2.jpeg" alt="I am an Atlantean">
+                    <span>I am an Atlantean</span>
+                </div>
+                <div class="slide">
+                    <img class="slide3" src="./assets/images/dont say.jpg" alt="You don't say?">
+                    <span>You don't say?</span>
+                </div>
+                <div class="slide">
+                    <img class="slide4" src="./assets/images/js patrick.jpeg" alt="Do you know?">
+                    <span>Do you know?</span>
+                </div>
+                <div class="slide">
+                    <img class="slide5" src="./assets/images/js patrick2.jpg" alt="You don't know!">
+                    <span>You don't know!</span>
+                </div>
+            </div>
+            <div class="buttons">
+                <label class="button" for="slide1" id="btn1"></label>
+                <label class="button" for="slide2" id="btn2"></label>
+                <label class="button" for="slide3" id="btn3"></label>
+                <label class="button" for="slide4" id="btn4"></label>
+                <label class="button" for="slide5" id="btn5"></label>
+            </div>
         </div>
     </div>
+
+    <footer class="footer">
+        <h4>Rolling Scopes School 2022Q1</h4>
+        <h4>Produced by Andrei Rumakin</h4>
+        <a href="https://github.com/aRumakin?tab=repositories">My github</a>
+    </footer>
 </body>
+
 </html>
