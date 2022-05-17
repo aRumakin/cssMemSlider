@@ -201,7 +201,7 @@ a {
         margin: auto;
     }
 
-    .text span {
+    .text p {
         margin: 0.3em auto;
         font-size: 1em;
         margin-top: 1em;
@@ -224,7 +224,7 @@ a {
         font-size: 1em;
     }
 
-    .text span {
+    .text p {
         font-size: 0.7em;
     }
 
