@@ -4,6 +4,20 @@
     url(./assets/fonts/Yaldevi-ExtraLight.woff);
 }
 
+@keyframes slidein {
+    from {
+      margin-left: 100%;
+      width: 100%;
+      opacity: 0;
+    }
+  
+    to {
+      margin-left: 0%;
+      width: 100%;
+      opacity: 1;
+    }
+  }
+
 * {
     margin: auto;
 }
@@ -18,15 +32,13 @@ body {
     text-align: center;
     height: 98vh;
     color: white;
-    justify-content: center;
+
 }
 
 .slider-container {
     max-width: 75em;
     margin: 0 auto;
     width: 100%;
-    max-height: 95vh;
-    height: 100%;
 }
 
 h3 {
@@ -50,17 +62,10 @@ h3 {
     visibility: hidden;
 }
 
-.slider::-webkit-scrollbar {
-    width: 0;
-}
-
 .slider-wrapper {
-    max-height: 80vh;
-    height: 80%;
     display: flex;
     transition: all 1s ease-in-out;
     width: 100%;
-    row-gap: 2em
 }
 
 .slide {
@@ -69,43 +74,50 @@ h3 {
     flex: 0 0 100%;
 }
 
-.slide > img {
+img {
     height: 100%;
     width: auto;
     max-width: 100%;
     border-radius: 0.3em;
-    margin-bottom: 2em;
 }
 
-.slide span {
-    display: block;
-    float: left;
+.text-controls {
+    display: flex;
+    justify-content: space-between;
+    margin: 2em 0 0;
+}
+
+.text {
+    align-items: flex-start;
     margin-left: 0;
-    margin-bottom: 0.5em;
+}
+.text p {
+    margin-left: 0;
     font-size: 1.2em;
-    transform: translateY(0em);
-    transition: all 1s ease-in-out;
+    animation-duration: 1s;
+    animation-name: slidein;
+    display: none;
 }
 
-#slide1:checked ~ .buttons > #btn1:hover,
-#slide2:checked ~ .buttons > #btn2:hover,
-#slide3:checked ~ .buttons > #btn3:hover,
-#slide4:checked ~ .buttons > #btn4:hover,
-#slide5:checked ~ .buttons > #btn5:hover {
+#slide1:checked ~ .text-controls > .buttons > #btn1:hover > .radio-button,
+#slide2:checked ~ .text-controls > .buttons > #btn2:hover > .radio-button,
+#slide3:checked ~ .text-controls > .buttons > #btn3:hover > .radio-button,
+#slide4:checked ~ .text-controls > .buttons > #btn4:hover > .radio-button,
+#slide5:checked ~ .text-controls > .buttons > #btn5:hover > .radio-button {
   border: solid rgb(111, 0, 176);
 }
 
-#slide1:checked ~ .buttons > #btn1,
-#slide2:checked ~ .buttons > #btn2,
-#slide3:checked ~ .buttons > #btn3,
-#slide4:checked ~ .buttons > #btn4,
-#slide5:checked ~ .buttons > #btn5 {
+#slide1:checked ~ .text-controls > .buttons > #btn1 > .radio-button,
+#slide2:checked ~ .text-controls > .buttons > #btn2 > .radio-button,
+#slide3:checked ~ .text-controls > .buttons > #btn3 > .radio-button,
+#slide4:checked ~ .text-controls > .buttons > #btn4 > .radio-button,
+#slide5:checked ~ .text-controls > .buttons > #btn5 > .radio-button {
   border: 0.2em solid rgb(111, 0, 176);
   background-color: white;
 }
 
 #slide1:checked ~ .slider-wrapper {
-    transform: translateX(0);
+    transform: translateY(0);
 }
 
 #slide2:checked ~ .slider-wrapper {
@@ -124,35 +136,42 @@ h3 {
     transform: translateX(-400%);
 }
 
+#slide1:checked ~ .text-controls > .text > :nth-child(1),
+#slide2:checked ~ .text-controls > .text > :nth-child(2),
+#slide3:checked ~ .text-controls > .text > :nth-child(3),
+#slide4:checked ~ .text-controls > .text > :nth-child(4),
+#slide5:checked ~ .text-controls > .text > :nth-child(5) {
+    display: block;
+}
+
 .buttons {
-    position: static;
     display: grid;
-    grid-template-columns: repeat(5, 2em);
+    grid-template-columns: repeat(5, 3em);
     column-gap: 0.5em;
     margin-left: auto;
     margin-right: 0;
-    height: 2em;
-    transform: translateY(-2.2em);
+    height: 3em;
 }
 
 .button {
     cursor: pointer;
-    height: 1em;
-    width: 1em;
-    border-radius: 1em;
-    border: 0.15em solid white ;
+    display: flex;
+    align-items: center;
+    border-radius: 50%;
 }
 
-.button:hover {
+.button > span {
+    border-radius: 50%;
+    margin: 0.35em;
+    width: 0.7em;
+    height: 0.7em;
+    border: 0.05em solid white ;
+}
+
+.button:hover .radio-button {
     transition: all 0.5s ease-in-out;
     border: 0.15em solid rgb(0, 0, 0);
     background-color: rgb(255, 255, 255);
-}
-
-footer {
-    margin-bottom: 0em;
-    height: 100%;
-    max-height: 35vh;
 }
 
 a {
@@ -166,40 +185,37 @@ a {
         font-size: 1.2em;
     }
 
-    .slider {
-        width: 70%;
-    }
-
     .slide {
         max-height: 85vh;
         height: 100%;
     }
 
-    .slide span {
+    .text-controls {
+        margin-top: 0.5em;
+        flex-wrap: wrap;
+        flex-direction: column-reverse;
+        justify-content: flex-end;
+    }
+
+    .text {
+        margin: auto;
+    }
+
+    .text span {
+        margin: 0.3em auto;
         font-size: 1em;
-        float: none;
         margin-top: 1em;
-        margin-left: auto;
     }
 
     .buttons {
-        margin-top: 0.5em;
-        margin-right: auto;
-        grid-template-columns: repeat(5, 1.5em);
-        transform: translateY(-3.8em);
-        height: 1.1em;
-    }
-
-    .button {
-        height: 0.7em;
-        width: 0.7em;
+        margin: auto;
+        grid-template-columns: repeat(5, 2em);
+        height: 2em;
     }
 
     footer {
-        visibility: hidden;
-        height: 0;
+        font-size: 0.8em;
     }
-
 }
 
 @media screen and (max-width: 767px) {
@@ -208,12 +224,17 @@ a {
         font-size: 1em;
     }
 
-    .slide span {
-        font-size: 0.5em;
+    .text span {
+        font-size: 0.7em;
     }
 
     .buttons {
-        grid-template-columns: repeat(5, 1em);
-        transform: translateY(-2.8em);
+        grid-template-columns: repeat(5, 1.5em);
+        height: 1.5em;
+    }
+
+    footer {
+        visibility: hidden;
+        height: 0;
     }
 }
